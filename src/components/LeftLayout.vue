@@ -9,22 +9,12 @@
       </li>
     </ul>
     <ul class="left-menu">
-      <a-player
-      ref="aplayer"
-      class="player"
-      :narrow="narrow"
-      :autoplay="autoplay"
-      :showlrc="showlrc"
-      :mutex="mutex"
-      :fold="fold"
-      :speed="speed"
-      :theme="theme"
-      :mode="mode"
-      :preload="preload"
-      :listmaxheight="listmaxheight"
-      :music="music"
-      ></a-player>
-      <div class="music-author">演奏：HOHO-十有八九</div>
+      <a-player autoplay :music="{
+      title: '宫崎骏动漫组曲',
+      author: 'HOHO-十有八九',
+      url: 'http://link1.5sing.kugou.com/35037559/v4YBAFXmQ2OAOG7EABDMZNMnuhQ127.mp3',
+      pic: 'http://upload-images.jianshu.io/upload_images/2141706-945d958d28df27c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
+      }"></a-player>
       <router-link :class="isBlog ? 'selected-menu':''" tag="li" to="/Blog">谱曲资源站</router-link>
       <router-link :class="isInstruction ? 'selected-menu':''" tag="li" to="/instruction">使用说明</router-link>
       <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" to="/AboutMe">关于JE</router-link>
@@ -58,7 +48,7 @@
     left: 0px;
     top: 0px;
     bottom: 0px;
-    width: 199px;
+    width: 249px;
     background-color: #ffffff;
     border-right: 1px solid #eeeeee;
   }
@@ -68,7 +58,7 @@
     height: 70px;
     border-radius: 10px;
     margin-top: 50px;
-    margin-left: 65px;
+    margin-left: 90px;
     cursor: pointer;
   }
 
@@ -117,31 +107,25 @@
     min-height: 150px;
     list-style: none;
     color: #4b595f;
-    .player{
-      display: block;
+    margin-bottom:100px;
+    .a-player {
       margin-left:auto;
       margin-right:auto;
-      margin-bottom:10px;
-
-    }
-    .music-author {
-      text-align: center;
-      margin-bottom:10px;
-      color: #849aa4;
-      font-size: 10px;
+      margin-bottom:20px;
     }
 
     li {
-      width: 199px;
+      width: 249px;
       height: 60px;
       line-height: 60px;
+      margin-top:20px;
       cursor: pointer;
       font-size: 16px;
       &:before {
         width: 4px;
         height: 100%;
         content: '';
-        margin-right: 46px;
+        margin-right: 69px;
         float: left;
         display: table;
       }
@@ -162,9 +146,9 @@
   }
 
   .qq-group {
-    margin-top: 50px;
-    margin-left: 55px;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 20px;
     height: 140px;
     width: 90px;
     span {
@@ -188,7 +172,7 @@
 </style>
 <script>
   import { mapGetters } from 'vuex'
-
+  import VueAplayer from 'vue-aplayer'
   export default {
     data () {
       return {
@@ -213,6 +197,9 @@
         }]
       }
     },
+    components: {
+      'a-player': VueAplayer
+    },
     computed: {
       ...mapGetters([
         'gitHubUser',
@@ -231,9 +218,6 @@
       isInstruction () {
         return this.$route.name === 'instruction'
       }
-    },
-    mounted () {
-      this.aplayer = this.$refs.aplayer
     },
     methods: {
       home () {

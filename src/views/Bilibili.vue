@@ -6,7 +6,7 @@
   </div>
 </template>
 <style  scoped>
-  @import '../css/Dplayer.min.css';
+
 </style>
 <script>
   import { mapGetters, mapActions } from 'vuex'

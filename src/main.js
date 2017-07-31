@@ -18,13 +18,10 @@ Vue.use(Row)
 Vue.use(Loading)
 Vue.component(Message.name, Message)
 Vue.prototype.$message = Message
-Vue.use(APlayer)
 
 import lodash from 'lodash'
 import moment from 'moment'
 import marked from 'marked'
-import APlayer from 'vue-aplayer-plugin'
-import 'vue-aplayer-plugin/dist/APlayer.min.css'
 import highlight from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import 'github-markdown-css/github-markdown.css'
